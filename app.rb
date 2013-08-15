@@ -8,9 +8,8 @@ class Yt < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
   get "/" do
-    "Hello, World"
-  end
-
-  post "/" do
+    redirect to("/channels/new")
   end
 end
+
+require_relative "controller/channel_controller"
