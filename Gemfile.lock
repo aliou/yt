@@ -1,3 +1,20 @@
+GIT
+  remote: git://github.com/dwillis/feedbag.git
+  revision: c018ce823dd3a8fc1e94fa5aac53aabc14cf8b49
+  specs:
+    feedbag (0.9.1)
+      nokogiri
+
+GIT
+  remote: git://github.com/swanson/feedzirra.git
+  revision: b1ff9dd220f90a6168d5c5555825bb3d33d851b8
+  specs:
+    feedzirra (0.2.0.rc2)
+      curb (~> 0.8.1)
+      loofah (~> 1.2.1)
+      nokogiri (~> 1.5.3)
+      sax-machine (~> 0.2.0.rc1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,11 +37,14 @@ GEM
     atomic (1.1.13)
     builder (3.1.4)
     coderay (1.0.9)
+    curb (0.8.4)
     i18n (0.6.5)
-    kgio (2.8.0)
+    loofah (1.2.1)
+      nokogiri (>= 1.4.4)
     method_source (0.8.2)
     minitest (4.7.5)
     multi_json (1.7.9)
+    nokogiri (1.5.10)
     pg (0.15.1)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -38,8 +58,9 @@ GEM
     racksh (1.0.0)
       rack (>= 1.0)
       rack-test (>= 0.5)
-    raindrops (0.11.0)
     rake (10.1.0)
+    sax-machine (0.2.0.rc1)
+      nokogiri (~> 1.5.2)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -52,19 +73,16 @@ GEM
       atomic
     tilt (1.4.1)
     tzinfo (0.3.37)
-    unicorn (4.6.3)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  feedbag!
+  feedzirra!
   pg (~> 0.15.1)
   pry (~> 0.9.12.2)
   racksh (~> 1.0.0)
   rake (~> 10.1.0)
   sinatra (~> 1.4.3)
   sinatra-activerecord (~> 1.2.3)
-  unicorn (~> 4.6.3)
