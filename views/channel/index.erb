@@ -1,9 +1,11 @@
 <div class="panel-heading">Feeds</div>
 <ul class="list-group">
   <% @channels.each do |chan| %>
-    <li class="list-group-item">
+    <li class="list-group-item" data-id="<%= chan.id %>">
       <a href="<%= chan.url %>"><%= chan.title %></a>
-      <span class="glyphicon glyphicon-remove pull-right"></span>
+      <span class="pull-right">
+	<a class="remove-chan" href="#">&times;</a>
+      </span>
     </li>
   <% end %>
 </ul>

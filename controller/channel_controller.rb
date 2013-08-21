@@ -23,4 +23,10 @@ class Yt < Sinatra::Base
     @channels = Channel.all
     erb :'channel/index'
   end
+
+  # TODO: Check if channel exists or wrap around exception block.
+  delete "/channels/:id" do
+    Channel.destroy(params[:id])
+    status 200
+  end
 end

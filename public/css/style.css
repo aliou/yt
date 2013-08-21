@@ -19,3 +19,6 @@ h1 {
   margin: 40px 0;
 }
 
+a .remove-chan {
+  text-underline: none;
+}
