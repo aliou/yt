@@ -9,3 +9,4 @@ gem "racksh", "~> 1.0.0"
 gem "pry", "~> 0.9.12.2"
 gem "feedzirra", {:github=>"swanson/feedzirra"}
 gem "feedbag", {:github=>"dwillis/feedbag"}
+gem "gmail", "~> 0.4.0"

@@ -1,5 +1,7 @@
-require "feedzirra"
+require "date"
 require "feedbag"
+require "feedzirra"
+require 'gmail'
 
 def fetch_channels
 end
