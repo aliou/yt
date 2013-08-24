@@ -1,7 +1,7 @@
 require "date"
 require "feedbag"
 require "feedzirra"
-require 'gmail'
+require "mail"
 
 def fetch_channels
   message = ""
@@ -26,17 +26,25 @@ def get_new_videos
 end
 
 def send_mail(message)
-  username = ENV["YT_MAIL_ADR"]
-  password = ENV["YT_MAIL_PWD"]
+  Mail.defaults do
+    delivery_method :smtp, {
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :domain => 'heroku.com',
+      :user_name => ENV['SENDGRID_USERNAME'],
+      :password => ENV['SENDGRID_PASSWORD'],
+      :authentication => 'plain',
+      :enable_starttls_auto => true
+    }
+  end
 
-  Gmail.connect(username, password) do |gmail|
-    gmail.deliver do
-      to ENV["YT_USER_ADR"]
-      subject "Youtube new videos for #{Date.today.to_s}"
-      text_part do
-	content_type 'text/html; charset=UTF-8'
-	body message
-      end
+  Mail.deliver do
+    from ENV["YT_MAIL_ADR"]
+    to ENV["YT_USER_ADR"]
+    subject "Youtube new videos for #{Date.today.to_s}"
+    text_part do
+      content_type 'text/html; charset=UTF-8'
+      body message
     end
   end
 end
