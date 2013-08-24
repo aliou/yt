@@ -22,7 +22,7 @@ def get_new_videos
     c.last_fetched = current_time
     c.save!
   end
-  videos
+  videos.sort! { |a,b| a.published <=> b.published }
 end
 
 def send_mail(message)
