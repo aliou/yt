@@ -1,5 +1,8 @@
+require "time"
 require "feedzirra"
 require "feedbag"
+
+ONE_DAY = 24 * 60 * 60
 
 class Yt < Sinatra::Base
   get "/channels" do
@@ -17,7 +20,10 @@ class Yt < Sinatra::Base
     feeds = Feedbag.find @url
     if !feeds.empty?
       feed = Feedzirra::Feed.fetch_and_parse(feeds.first)
-      Channel.create(:url => @url, :feed => feed.url, :title => feed.title)
+      Channel.create(:url => @url,
+		     :feed => feeds.first,
+		     :title => feed.title,
+		     :last_fetched => Time.now - ONE_DAY)
     end
 
     @channels = Channel.all
