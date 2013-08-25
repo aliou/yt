@@ -5,12 +5,12 @@ require "feedbag"
 ONE_DAY = 24 * 60 * 60
 
 class Yt < Sinatra::Base
-  get "/channels" do
+  get "/channels/?" do
     @channels = Channel.all
     erb :'channel/index'
   end
 
-  get "/channels/new" do
+  get "/channels/new/?" do
     erb :'channel/add'
   end
 
