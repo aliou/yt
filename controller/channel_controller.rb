@@ -6,7 +6,7 @@ ONE_DAY = 24 * 60 * 60
 
 class Yt < Sinatra::Base
   get "/channels/?" do
-    @channels = Channel.all
+    @channels = Channel.all.sort! { |a, b| a.title.downcase <=> b.title.downcase}
     erb :'channel/index'
   end
 
