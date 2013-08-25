@@ -10,3 +10,4 @@ gem "pry", "~> 0.9.12.2"
 gem "feedzirra", {:github=>"swanson/feedzirra"}
 gem "feedbag", {:github=>"dwillis/feedbag"}
 gem "mail", "~> 2.5.4"
+gem "sinatra-flash", "~> 0.3.0"

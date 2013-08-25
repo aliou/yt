@@ -25,7 +25,7 @@ class Yt < Sinatra::Base
 		     :title => feed.title,
 		     :last_fetched => Time.now - ONE_DAY)
     end
-
+    flash[:success] = "Channel successfully added."
     redirect to("/channels")
   end
 
