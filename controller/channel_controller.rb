@@ -29,8 +29,12 @@ class Yt < Sinatra::Base
     redirect to("/channels")
   end
 
-  # TODO: Check if channel exists or wrap around exception block.
   delete "/channels/:id" do
+    begin
+      Channel.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      return status 404
+    end
     Channel.destroy(params[:id])
     status 200
   end
