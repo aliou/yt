@@ -26,8 +26,7 @@ class Yt < Sinatra::Base
 		     :last_fetched => Time.now - ONE_DAY)
     end
 
-    @channels = Channel.all
-    erb :'channel/index'
+    redirect to("/channels")
   end
 
   # TODO: Check if channel exists or wrap around exception block.
