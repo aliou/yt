@@ -64,6 +64,7 @@ GEM
       rack (>= 1.0)
       rack-test (>= 0.5)
     rake (10.1.0)
+    ruby-oembed (0.8.8)
     sax-machine (0.2.0.rc1)
       nokogiri (~> 1.5.2)
     sinatra (1.4.3)
@@ -95,6 +96,7 @@ DEPENDENCIES
   pry (~> 0.9.12.2)
   racksh (~> 1.0.0)
   rake (~> 10.1.0)
+  ruby-oembed
   sinatra (~> 1.4.3)
   sinatra-activerecord (~> 1.2.3)
   sinatra-flash (~> 0.3.0)

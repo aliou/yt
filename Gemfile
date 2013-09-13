@@ -11,3 +11,4 @@ gem "feedzirra", {:github=>"swanson/feedzirra"}
 gem "feedbag", {:github=>"dwillis/feedbag"}
 gem "mail", "~> 2.5.4"
 gem "sinatra-flash", "~> 0.3.0"
+gem "ruby-oembed", "~> 0.8.8"
