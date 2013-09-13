@@ -8,3 +8,4 @@
 * Add a header on pages.
 * ~~Sort channels by name.~~
 * Use OEmbed to also show previews.
+* Create view for email.
