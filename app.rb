@@ -3,6 +3,7 @@ require "sinatra/flash"
 require "sinatra/activerecord"
 
 require_relative "models/channel"
+require_relative "models/user"
 
 class Yt < Sinatra::Base
   set :database, ENV["DATABASE_URL"]
