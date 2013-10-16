@@ -10,12 +10,10 @@ class Yt < Sinatra::Base
       flash.now[:error] = "There is an error in your informations. Please try again."
       erb :"user/setup"
     else
-      puts params
       User.create(:mail => params[:mail],
                   :password_digest => Digest::MD5.hexdigest(params[:password]))
       redirect to('/')
     end
-    puts "k"
   end
 
   get '/signin' do

@@ -10,10 +10,6 @@ class Yt < Sinatra::Base
     erb :'channel/index'
   end
 
-  get "/channels/new/?" do
-    erb :'channel/add'
-  end
-
   post "/channels" do
     @url = params[:url]
 
@@ -21,9 +17,9 @@ class Yt < Sinatra::Base
     if !feeds.empty?
       feed = Feedzirra::Feed.fetch_and_parse(feeds.first)
       Channel.create(:url => @url,
-		     :feed => feeds.first,
-		     :title => feed.title,
-		     :last_fetched => Time.now - ONE_DAY)
+                     :feed => feeds.first,
+                     :title => feed.title,
+                     :last_fetched => Time.now - ONE_DAY)
     end
     flash[:success] = "Channel successfully added."
     redirect to("/channels")

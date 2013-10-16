@@ -30,7 +30,7 @@ class Yt < Sinatra::Base
 
   get "/" do
     if User.any?
-      redirect to("/channels/new")
+      redirect to("/channels/")
     else
       redirect to("/setup")
     end

@@ -1,12 +1,35 @@
 <%= partials "flash" %>
-<div class="panel-heading">Feeds</div>
-<ul class="list-group">
-  <% @channels.each do |chan| %>
-    <li class="list-group-item" data-id="<%= chan.id %>">
-      <a href="<%= chan.url %>"><%= chan.title %></a>
-      <span class="pull-right">
-	<a class="remove-chan" href="#">&times;</a>
-      </span>
-    </li>
-  <% end %>
-</ul>
+
+<h2 class="ui header">Feeds</h2>
+
+<div class="ui pointing secondary demo menu">
+  <a class="active red item" data-tab="list">List</a>
+  <a class="blue item" data-tab="add">Add</a>
+</div>
+
+<div class="ui active tab" data-tab="list">
+  <div class="ui divided link list">
+    <% @channels.each do |chan| %>
+      <div class="item" data-id="<%= chan.id %>">
+        <a href="<%= chan.url %>">
+          <%= chan.title %>
+          <div class="right floated tiny basic ui button remove-chan">&times;</div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="ui tab" data-tab="add">
+  <form id="add-feed" class="margin-base-vertical" method="POST" action="/channels">
+    <div class="ui form segment">
+      <div class="field">
+        <div class="ui left labeled icon input">
+          <input type="text" name="url" placeholder="youtube.com/..." />
+          <i class="youtube play icon"></i>
+        </div>
+      </div>
+      <div class="ui blue submit button" id="add-feed-button">Add Feed</div>
+    </div>
+  </form>
+</div>

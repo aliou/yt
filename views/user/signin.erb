@@ -1,11 +1,32 @@
 <%= partials "flash" %>
-<h1 class="margin-base-vertical text-center">Sign into your account</h1>
-<form class="margin-base-vertical" method="POST" action="/signin">
-  <p class="input-group input-group-sm">
-    <input type="text" class="form-control" name="email" placeholder="email" />
-    <input type="password" class="form-control" name="password" placeholder="password" />
-  </p>
-  <p class="text-center">
-    <button type="submit" class="btn btn-success">Sign in</button>
-  </p>
+
+<h1>Sign into your account</h1>
+
+<form id="signin" method="POST" action="/signin">
+<div class="ui form segment">
+  <div class="field">
+    <label>Username</label>
+    <div class="ui left labeled icon input">
+      <input type="text" placeholder="email" name="mail">
+      <i class="mail icon"></i>
+      <div class="ui corner label">
+        <i class="icon asterisk"></i>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <div class="ui left labeled icon input">
+      <input type="password" name="password">
+      <i class="lock icon"></i>
+      <div class="ui corner label">
+        <i class="icon asterisk"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+  <div class="ui blue submit button" id="signin-button">Signin</div>
+</div>
 </form>
