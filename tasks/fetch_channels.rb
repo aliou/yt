@@ -7,9 +7,10 @@ require "oembed"
 def fetch_channels
   message = ""
   get_new_videos.each do |video|
-    thumbnail = OEmbed::Providers::Youtube.get(video.url).thumbnail_url
-    message += "<a href=\"#{video.url}\"><img src=\"#{thumbnail}\" /></a>"
+    # thumbnail = OEmbed::Providers::Youtube.get(video.url).thumbnail_url
+    message += "<a href=\"#{video.url}\">" # <img src=\"#{thumbnail}\" /></a>"
     message += "<br /><small>#{video.title}</small>"
+    message += "</a>"
     message += "<br /><br />"
   end
   send_mail message unless message == ""
